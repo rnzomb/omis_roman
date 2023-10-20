@@ -7,13 +7,13 @@
 }
 
 
-body {
+/* body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh ;
     font-family: 'Roboto', sans-serif;
-}
+} */
 
 
 #mainBox {
@@ -64,7 +64,6 @@ body {
 /*  FLEX  */
 /*
 
-
 body {
     padding: 50px;
 }
@@ -90,4 +89,93 @@ body {
 }
 
 */
+/* RIGHT COLUMN */
 
+.rightCol h1 {
+    color: white;
+    font-size: 28px;
+}
+/*
+input[placeholder*="email"][name^="u"] {
+    border-radius: 50%;
+}
+Attribute selectors - developer.mozilla org
+*/
+
+input[type="text"]{
+   /*
+    width: 100px;
+    height: 200px;
+    border-radius: 50%;
+    transform: rotate(15deg);
+
+
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid red;
+*/
+
+    height: 30px;
+    border-radius: 20px;
+
+}
+
+/* CSS Pseudo element
+u tekstovyh elementov netu before i after*/
+
+input[type="text"]::placeholder {
+    color: #015bea;     
+}
+/*PSEUDOI ELEMENTS + CLASSES*/
+/* .parent::before {
+    content: "before";
+    border: 1px solid red;
+} */
+
+/* .parent::after {
+    content: "after";
+    border: 1px solid red;
+}
+
+.parent::first-letter {
+    font-size: 48px;
+    color: green;
+}
+
+.parent::first-line {
+    background-color: yellow;
+}
+
+ul li:first-child {
+    font-weight: bold;
+}
+
+ul li:last-child {
+    color: blue;
+}
+
+ul li:nth-child(3) {
+    text-decoration: underline;
+}
+
+a:link {  default view
+    color: green;
+    text-decoration:  none;
+}
+
+a:visited {
+    color: red;
+
+}
+
+a:hover, .parent:hover {
+    cursor: crosshair;
+    text-decoration: underline;
+}
+
+a:active {
+    font-size: 40px;
+    color: #015bea;
+} */

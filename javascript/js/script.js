@@ -65,3 +65,82 @@ for (let index = 0; index < arr1.length; index += 2) {
     console.log("element", arr1[index]);
     
 }
+
+const arr2 = {
+    key : 'value',
+    key2 : 'value 2',
+    key3 : {
+        key : 'value 21',
+        arr: [
+            'value object 22', // 0
+            'value 23'
+        ]
+    }
+}
+
+console.log(arr2.key2);
+console.log(arr2.key3.key);
+console.log(arr2.key3.arr[0]);
+arr2.key3.arr.push('second', 'third')
+console.log(arr2.key3.arr);
+console.log(arr2.key3.arr[3]);
+
+// console.log()
+
+for (let keyIndex in arr2) {
+    if (arr2.hasOwnProperty(keyIndex)) {
+        console.log(keyIndex + ": " + arr2[keyIndex]);
+    }
+
+}
+
+
+// option 2
+console.log('--------variant 2---------');
+console.log(Object.keys(arr2));
+console.log(Object.values(arr2));
+console.log(Object.entries(arr2));
+console.log(Object.entries(arr2.key3));
+
+
+function myfn(x, y) {
+    return x + y
+}
+
+let result = myfn(2, 4)
+console.log(myfn(2, 4) + 5);
+
+function multiply(x, y) { // void
+    x * y
+}
+
+let result2 = multiply(2, 5)
+console.log(result2);
+
+class MyClass {
+
+    #result = 0
+    result2 = 0
+
+    constructor() {
+        this.result2 = 500
+    }
+
+    multiply(x, y) {
+        this.#result = x * y
+    }
+
+    getResult(){
+        return this.#result
+    }
+}
+
+let numbers = new MyClass() 
+numbers.multiply(5, 5)
+
+console.log(numbers.getResult());
+//numbers.result2 = 210
+console.log(numbers.result2);
+
+
+

@@ -4,9 +4,36 @@ class Calc {
 
     buttons = document.getElementsByClassName('btn')
 
+    #singleAllowedKeys = [
+        'NumpadDivide',
+        'NumpadMultiply',
+        'NumpadSubtract',
+        'NumpadAdd', 
+        'NumpadDecimal',
+        'Period',
+        'Backspace', 
+        'Enter'
+    ]
+
     constructor() {
         this.addEventListenerToButtons()
+        this.addEventListenerToInput()
     }
+
+    addNewAllowedKeys(...newKey) {
+        newKey.forEach(key => {
+            this.#singleAllowedKeys.push(key)
+        })
+        
+
+    }
+
+    getSingleAllowedKeys() {
+        this.#singleAllowedKeys.forEach(allowedKey => {
+            console.log(allowedKey);
+        })
+    }
+
     addEventListenerToButtons() {
         for (let index = 0; index < this.buttons.length; index++) {
             const button = this.buttons[index];
@@ -29,11 +56,40 @@ class Calc {
     calculateResult() {
         this.resultInput.value = eval(this.resultInput.value)
    }
+
+   addEventListenerToInput() {
+    this.resultInput.addEventListener('keydown', event => {
+
+        //event.preventDefault()
+
+        console.log(event.key + ' - '+ event.keyCode + ' - '+ event.code);
+        if ((event.keyCode <47 || (event.keyCode >57 && event.keyCode < 96) || 
+        event.keyCode > 105) && !(this.#singleAllowedKeys.includes(event.code) && event.shiftKey == false))
+        {
+            event.preventDefault()
+        } else if (event.code == 'Enter' || event.code == 'NumpadEnter') {
+            this.calculateResult()
+            event.preventDefault()
+        }
+    })
+
+    this.resultInput.addEventListener('keyup', event => {
+        console.log('keyup')
+    })
+
+    this.resultInput.addEventListener('keydown', event => {
+        console.log('keypress')
+    })
+   }
    
 }
 
 
 let myCalc = new Calc()
+myCalc.addNewAllowedKeys('Equal','Minus')
+
+myCalc.getSingleAllowedKeys()
+
 //myCalc.addEventListenerToButtons()
 console.log(myCalc.buttons);
 

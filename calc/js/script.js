@@ -12,7 +12,8 @@ class Calc {
         'NumpadDecimal',
         'Period',
         'Backspace', 
-        'Enter'
+        'Enter',
+        'NumpadEnter'
     ]
 
     constructor() {
